@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/NikhilKumarMandal/students-api/internal/config"
+	"github.com/NikhilKumarMandal/students-api/internal/http/handlers/student"
 )
 
 
@@ -26,9 +27,7 @@ func main(){
 
 	router := http.NewServeMux()
 
-	router.HandleFunc("GET /",func(w http.ResponseWriter,r *http.Request){
-		w.Write([]byte("Welcome to students api"))
-	})
+	router.HandleFunc("POST /api/students",student.New())
 
 	// setup server
 
